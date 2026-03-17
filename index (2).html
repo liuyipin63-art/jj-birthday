@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ JJ LIN 0327 圣所庆生 ✨</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎸</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #000; /* 视频加载前显示黑色 */
+            overflow-x: hidden;
+        }
+
+        /* 1. 视频背景定位 */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 铺满且不拉伸 */
+            z-index: -2;       /* 放在最底层 */
+        }
+
+        /* 2. 毛玻璃遮罩层 */
+        .glass-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 关键：毛玻璃效果 */
+            backdrop-filter: blur(5px) brightness(0.9); 
+            -webkit-backdrop-filter: blur(5px) brightness(0.9); /* 兼容苹果浏览器 */
+            background: rgba(0, 0, 0, 0.2); /* 淡淡的黑色半透明 */
+            z-index: -1; /* 夹在视频和文字之间 */
+        }
+
+        /* 3. 内容区域 */
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 120px rgba(0, 0, 0, 0.3);
+            /* 设置盒子阴影， */
+        }
+
+        h1 { font-size: 3rem; letter-spacing: 5px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <video id="bg-video" autoplay muted playsinline>
+        <source src="jj.mp4" type="video/mp4">
+    </video>
+
+    <div class="glass-overlay"></div>
+
+    <div class="content">
+        <div class="birthday-card">
+            <h1>0327</h1>
+            <p>HAPPY BIRTHDAY TO JJ LIN</p>
+            <p style="margin-top: 20px; opacity: 0.8;">“只要有你的地方，就是圣所。”</p>
+        </div>
+    </div>
+
+</body>
+</html>
